@@ -4,7 +4,7 @@
 #define INCLUDE_HEADER_HPP_
 
 #include <thread>
-#include "picosha2.h"
+#include <picosha2.h>
 #include <string>
 #include <iostream>
 #include <boost/log/trivial.hpp>

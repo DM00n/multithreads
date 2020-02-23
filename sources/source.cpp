@@ -12,13 +12,13 @@ std::string MultiThread::my_gen(){
     std::string str;
     for (unsigned i = 0; i < 5; ++i) {
         unsigned a = mersenne()%75+48;
-        str+=(char)a;
+        str+=static_cast<char>a;
     }
     return str;
 }
 
 void MultiThread::hash() {
-    while(true) {
+    while (true) {
         std::string str = my_gen();
         const std::string hash = picosha2::hash256_hex_string(str);
         std::string last_4(hash, 60, 4);
@@ -37,7 +37,7 @@ void MultiThread::engine(){
         std::thread thr(&MultiThread::hash, this);
         threads.emplace_back(std::move(thr));
     }
-    for(auto& thr : threads) {
+    for (auto& thr : threads) {
         thr.join();
     }
 }
