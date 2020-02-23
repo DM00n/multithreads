@@ -12,7 +12,7 @@ std::string MultiThread::my_gen(){
     std::string str;
     for (unsigned i = 0; i < 5; ++i) {
         unsigned a = mersenne()%75+48;
-        str+=static_cast<char>a;
+        str+=static_cast<char>(a);
     }
     return str;
 }
