@@ -53,7 +53,7 @@ void MultiThread::logger() {
             logging::keywords::filter = logging::trivial::severity
                                >= logging::trivial::trace,
             logging::keywords::format =
-                    "[%TimeStamp%]:  [%ThreadID%]   %Message%")
+                    "[%TimeStamp%]:  [%ThreadID%]   %Message%");
 
     logging::add_file_log(
             logging::keywords::file_name = "/log/info_%N.log",
