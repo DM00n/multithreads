@@ -43,7 +43,7 @@ void MultiThread::engine(){
     }
 }
 
-void MultiThread::logging() {
+void MultiThread::logger() {
     logging::add_common_attributes();
     logging::add_file_log(
             keywords::file_name = "/log/trace_%N.log",
