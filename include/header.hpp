@@ -9,6 +9,7 @@
 #include <iostream>
 #include <boost/log/trivial.hpp>
 #include <random>
+namespace logging = boost::log;
 class MultiThread{
 public:
     MultiThread();

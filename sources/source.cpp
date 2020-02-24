@@ -44,32 +44,32 @@ void MultiThread::engine(){
 }
 
 void MultiThread::logger() {
-    boost::log::logging::add_common_attributes();
-    boost::log::logging::add_file_log(
-            boost::log::keywords::file_name = "/log/trace_%N.log",
-            boost::log::keywords::rotation_size = 10 * 1024 * 1024,
-            boost::log::keywords::time_based_rotation =
+    logging::add_common_attributes();
+    logging::add_file_log(
+            logging::keywords::file_name = "/log/trace_%N.log",
+            logging::keywords::rotation_size = 10 * 1024 * 1024,
+            logging::keywords::time_based_rotation =
                     boost::log::sinks::file::rotation_at_time_point(0, 0, 0),
-            boost::log::keywords::filter = boost::log::
+            logging::keywords::filter = boost::log::
                     logging::trivial::severity
                                >= boost::log::logging::trivial::trace,
-            boost::log::keywords::format =
+            logging::keywords::format =
                     "[%TimeStamp%]:  [%ThreadID%]   %Message%")
 
-    boost::log::logging::add_file_log(
-            boost::log::keywords::file_name = "/log/info_%N.log",
-            boost::log::keywords::rotation_size = 1024 * 1024,
-            boost::log::keywords::time_based_rotation =
+    logging::add_file_log(
+            logging::keywords::file_name = "/log/info_%N.log",
+            logging::keywords::rotation_size = 1024 * 1024,
+            logging::keywords::time_based_rotation =
                     boost::log::sinks::file::rotation_at_time_point(0, 0, 0),
-            boost::log::keywords::filter = boost::log::
+            logging::keywords::filter = boost::log::
                     logging::trivial::severity
                                >= boost::log::logging::trivial::info,
-            boost::log::keywords::format =
+            logging::keywords::format =
                     "[%TimeStamp%]:   [%ThreadID%]   %Message%")
-    boost::log::logging::add_console_log
+    logging::add_console_log
             (
                     std::cout,
-                    boost::log::logging::keywords::format =
+                    logging::keywords::format =
                             "[%TimeStamp%]: [%ThreadID%]  "
                             "[%Severity%]: %Message%");
 }
