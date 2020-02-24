@@ -32,6 +32,7 @@ void MultiThread::hash() {
 }
 
 void MultiThread::engine(){
+    logging();
     std::vector<std::thread> threads;
     for (unsigned i = 0; i < _count_of_threads; ++i) {
         std::thread thr(&MultiThread::hash, this);
@@ -40,4 +41,33 @@ void MultiThread::engine(){
     for (auto& thr : threads) {
         thr.join();
     }
+}
+
+void MultiThread::logging() {
+    logging::add_common_attributes();
+    logging::add_file_log(
+            keywords::file_name = "/log/trace_%N.log",
+            keywords::rotation_size = 10 * 1024 * 1024,
+            keywords::time_based_rotation =
+                    sinks::file::rotation_at_time_point(0, 0, 0),
+            keywords::filter = logging::trivial::severity
+                               >= logging::trivial::trace,
+            keywords::format =
+                    "[%TimeStamp%]:  [%ThreadID%]   %Message%")
+
+    logging::add_file_log(
+            keywords::file_name = "/log/info_%N.log",
+            keywords::rotation_size = 1024 * 1024,
+            keywords::time_based_rotation =
+                    sinks::file::rotation_at_time_point(0, 0, 0),
+            keywords::filter = logging::trivial::severity
+                               >= logging::trivial::info,
+            keywords::format =
+                    "[%TimeStamp%]:   [%ThreadID%]   %Message%")
+    logging::add_console_log
+            (
+                    std::cout,
+                    logging::keywords::format =
+                            "[%TimeStamp%]: [%ThreadID%]  "
+                            "[%Severity%]: %Message%");
 }

@@ -16,6 +16,7 @@ public:
     std::string my_gen();
     void hash();
     void engine();
+    void logging();
     size_t _count_of_threads;
 };
 #endif // INCLUDE_HEADER_HPP_
