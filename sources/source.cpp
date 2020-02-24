@@ -32,7 +32,7 @@ void MultiThread::hash() {
 }
 
 void MultiThread::engine(){
-    logging();
+    logger();
     std::vector<std::thread> threads;
     for (unsigned i = 0; i < _count_of_threads; ++i) {
         std::thread thr(&MultiThread::hash, this);
