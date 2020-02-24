@@ -49,10 +49,9 @@ void MultiThread::logger() {
             logging::keywords::file_name = "/log/trace_%N.log",
             logging::keywords::rotation_size = 10 * 1024 * 1024,
             logging::keywords::time_based_rotation =
-                    boost::log::sinks::file::rotation_at_time_point(0, 0, 0),
-            logging::keywords::filter = boost::log::
-                    logging::trivial::severity
-                               >= boost::log::logging::trivial::trace,
+                    logging::sinks::file::rotation_at_time_point(0, 0, 0),
+            logging::keywords::filter = logging::trivial::severity
+                               >= logging::trivial::trace,
             logging::keywords::format =
                     "[%TimeStamp%]:  [%ThreadID%]   %Message%")
 
@@ -60,12 +59,11 @@ void MultiThread::logger() {
             logging::keywords::file_name = "/log/info_%N.log",
             logging::keywords::rotation_size = 1024 * 1024,
             logging::keywords::time_based_rotation =
-                    boost::log::sinks::file::rotation_at_time_point(0, 0, 0),
-            logging::keywords::filter = boost::log::
-                    logging::trivial::severity
-                               >= boost::log::logging::trivial::info,
+                    logging::sinks::file::rotation_at_time_point(0, 0, 0),
+            logging::keywords::filter = logging::trivial::severity
+                               >= logging::trivial::info,
             logging::keywords::format =
-                    "[%TimeStamp%]:   [%ThreadID%]   %Message%")
+                    "[%TimeStamp%]:   [%ThreadID%]   %Message%");
     logging::add_console_log
             (
                     std::cout,
