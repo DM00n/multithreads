@@ -30,9 +30,9 @@ public:
     void engine();
     void logger();
     size_t _count_of_threads;
-    static const char VALUE[] = "0000";
-    static const unsigned LOG_SIZE = 10 * 1024 * 1024;
-    static const char LOG_NAME_TRACE[] = "trace_%N.log";
-    static const char LOG_LOG_TRACE[] = "log_%N.log";
+    const char VALUE[] = "0000";
+    const unsigned LOG_SIZE = 10 * 1024 * 1024;
+    const char LOG_NAME_TRACE[] = "trace_%N.log";
+    const char LOG_LOG_TRACE[] = "log_%N.log";
 };
 #endif // INCLUDE_HEADER_HPP_
