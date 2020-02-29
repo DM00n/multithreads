@@ -23,7 +23,7 @@ void MultiThread::hash() {
         std::string str = my_gen();
         const std::string hash = picosha2::hash256_hex_string(str);
         std::string last_4(hash, 60, 4);
-        if (last_4 == VALUE[]) {
+        if (last_4 == VALUE) {
             BOOST_LOG_TRIVIAL(info) << hash << " " << str << std::endl;
             break;
         } else {
@@ -47,8 +47,8 @@ void MultiThread::engine(){
 void MultiThread::logger() {
     logging::add_common_attributes();
     logging::add_file_log(
-            logging::keywords::file_name = LOG_NAME_TRACE[],
-            logging::keywords::rotation_size = LOG_SIZE[],
+            logging::keywords::file_name = LOG_NAME_TRACE,
+            logging::keywords::rotation_size = LOG_SIZE,
             logging::keywords::time_based_rotation =
                     logging::sinks::file::rotation_at_time_point(0, 0, 0),
             logging::keywords::filter = logging::trivial::severity
@@ -57,8 +57,8 @@ void MultiThread::logger() {
                     "[%TimeStamp%]:  [%ThreadID%]   %Message%");
 
     logging::add_file_log(
-            logging::keywords::file_name = LOG_INFO_TRACE[],
-            logging::keywords::rotation_size = LOG_SIZE[],
+            logging::keywords::file_name = LOG_INFO_TRACE,
+            logging::keywords::rotation_size = LOG_SIZE,
             logging::keywords::time_based_rotation =
                     logging::sinks::file::rotation_at_time_point(0, 0, 0),
             logging::keywords::filter = logging::trivial::severity
