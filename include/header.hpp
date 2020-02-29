@@ -23,7 +23,7 @@
 static const std::string VALUE = "0000";
 static const unsigned LOG_SIZE = 10 * 1024 * 1024;
 static const char LOG_NAME_TRACE[] = "trace_%N.log";
-static const char LOG_LOG_TRACE[]hlr = "log_%N.log";
+static const char LOG_LOG_TRACE[] = "log_%N.log";
 
 namespace logging = boost::log;
 class MultiThread{
