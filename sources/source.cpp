@@ -57,7 +57,7 @@ void MultiThread::logger() {
                     "[%TimeStamp%]:  [%ThreadID%]   %Message%");
 
     logging::add_file_log(
-            logging::keywords::file_name = LOG_INFO_TRACE,
+            logging::keywords::file_name = LOG_LOG_TRACE,
             logging::keywords::rotation_size = LOG_SIZE,
             logging::keywords::time_based_rotation =
                     logging::sinks::file::rotation_at_time_point(0, 0, 0),
