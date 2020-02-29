@@ -20,6 +20,11 @@
 #include <boost/core/null_deleter.hpp>
 #include <boost/log/expressions/keyword.hpp>
 
+const static std::string VALUE = "0000";
+const static unsigned LOG_SIZE = 10 * 1024 * 1024;
+const static std::string LOG_NAME_TRACE = "trace_%N.log";
+const static std::string LOG_LOG_TRACE = "log_%N.log";
+
 namespace logging = boost::log;
 class MultiThread{
 public:
@@ -30,9 +35,5 @@ public:
     void engine();
     void logger();
     size_t _count_of_threads;
-    const static std::string VALUE = "0000";
-    const static unsigned LOG_SIZE = 10 * 1024 * 1024;
-    const static std::string LOG_NAME_TRACE = "trace_%N.log";
-    const static std::string LOG_LOG_TRACE = "log_%N.log";
 };
 #endif // INCLUDE_HEADER_HPP_
